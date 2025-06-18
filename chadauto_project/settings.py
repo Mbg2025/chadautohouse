@@ -1,6 +1,8 @@
 # monprojet/settings.py
 import os
 from pathlib import Path
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,10 +11,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-votre-clé-secrète-ici'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+#DEBUG = True
+# DEBUG mode (False en production)
+DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['*']  # Temporairement
 CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app']  # Sécurité
+
+# Secret key
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='change-me')
+
+# Allow Render
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -64,13 +73,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'chadauto_project.wsgi.application'
 
 # Database
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+ #   }
+#}
+# PostgreSQL Database
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
