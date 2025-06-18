@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<span data-no-translate>ChadAuto&House Rental</span>{% endblock %}
+
+{% block diaporama %}
+<section class="diaporama-section">
+    <div class="diaporama">
+        <img src="{% static 'images/2.png' %}" alt="About image 1" class="diaporama-image active">
+        <img src="{% static 'images/B.jpg' %}" alt="About image 2" class="diaporama-image">
+        <img src="{% static 'images/42.png' %}" alt="About image 3" class="diaporama-image">
+        <img src="{% static 'images/H.jpeg' %}" alt="About image 4" class="diaporama-image">
+        <img src="{% static 'images/15.png' %}" alt="About image 5" class="diaporama-image">
+        <img src="{% static 'images/D.jpeg' %}" alt="About image 6" class="diaporama-image">
+        <img src="{% static 'images/44.png' %}" alt="About image 7" class="diaporama-image">
+        <img src="{% static 'images/M.jpeg' %}" alt="About image 8" class="diaporama-image">
+        <img src="{% static 'images/I.jpg' %}" alt="About image 9" class="diaporama-image">
+        <img src="{% static 'images/18.png' %}" alt="About image 10" class="diaporama-image">
+        <img src="{% static 'images/J.jpg' %}" alt="About image 11" class="diaporama-image">
+        <img src="{% static 'images/M.jpeg' %}" alt="About image 12" class="diaporama-image">
+        <img src="{% static 'images/37.png' %}" alt="About image 13" class="diaporama-image">
+        <img src="{% static 'images/A.jpg' %}" alt="About image 14" class="diaporama-image">
+        <img src="{% static 'images/Q.jpeg' %}" alt="About image 15" class="diaporama-image">
+        <img src="{% static 'images/33.png' %}" alt="About image 16" class="diaporama-image">
+        <img src="{% static 'images/G.jpg' %}" alt="About image 17" class="diaporama-image">
+        <img src="{% static 'images/47.png' %}" alt="About image 18" class="diaporama-image">
+    </div>
+   
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <!-- Notre Histoire -->
+            <section class="mb-5">
+                <h2 class="mb-4 border-bottom pb-2">Our Story</h2>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="{% static 'images/k.png' %}" alt="Our story" class="img-fluid rounded mb-3">
+                    </div>
+                    <div class="col-md-6">
+                        <p class="lead">Welcome to Chad Auto & House Rentals, your premier destination for reliable and affordable rental services in Chad.</p>
+                        <p>Founded in 2023, we've grown from a small local business to the leading rental service provider in the region.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nos Services -->
+            <section class="mb-5">
+                <h2 class="mb-4 border-bottom pb-2">Our Services</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4><i class="fas fa-car me-2"></i> Auto Rentals</h4>
+                                <ul class="mt-3">
+                                    <li>Sedans for city driving</li>
+                                    <li>SUVs for family trips</li>
+                                    <li>4x4 for off-road adventures</li>
+                                    <li>With or without driver</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4><i class="fas fa-home me-2"></i> House Rentals</h4>
+                                <ul class="mt-3">
+                                    <li>Modern apartments</li>
+                                    <li>Family houses</li>
+                                    <li>Short and long term</li>
+                                    <li>Fully furnished</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notre Engagement -->
+            <section class="mb-5">
+                <h2 class="mb-4 border-bottom pb-2">Our Commitment</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="text-center p-3 border rounded h-100">
+                            <i class="fas fa-check-circle fa-3x text-primary mb-3"></i>
+                            <h5>Quality Vehicles</h5>
+                            <p>Regularly maintained and inspected</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center p-3 border rounded h-100">
+                            <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                            <h5>24/7 Support</h5>
+                            <p>Always available for our customers</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center p-3 border rounded h-100">
+                            <i class="fas fa-hand-holding-usd fa-3x text-primary mb-3"></i>
+                            <h5>Fair Pricing</h5>
+                            <p>No hidden fees or charges</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .diaporama-text {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+    }
+    .border-bottom {
+        border-color: #0d6efd !important;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animation spécifique à la page About
+    document.addEventListener('DOMContentLoaded', function() {
+        const animateElements = () => {
+            const elements = document.querySelectorAll('.card, .text-center');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animate__animated', 'animate__fadeInUp');
+                }, 100 * index);
+            });
+        };
+        
+        // Délai pour laisser le diaporama charger
+        setTimeout(animateElements, 500);
+    });
+</script>
+{% endblock %}

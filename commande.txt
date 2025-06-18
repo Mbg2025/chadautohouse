@@ -1,0 +1,13 @@
+Pour coder avec Python :
+a- Python à installer
+b- VSCode
+c- Django avec linge de commende :  pip install Django
+
+
+lancer server : python manage.py runserver
+on stope le commende encours avec ctrl C puis on nouvre le nouveau commende
+
+hebergement local: 
+lance server : python manage.py runserver 0.0.0.0:8000
+                + nouveau terminal = python ngrok_tunnel.py 
+                
