@@ -56,7 +56,7 @@ MIDDLEWARE = [
 # Configuration WhiteNoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'chadauto_project.urls'
-
+WHITENOISE_MANIFEST_STRICT = False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
