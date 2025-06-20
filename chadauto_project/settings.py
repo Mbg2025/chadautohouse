@@ -85,7 +85,7 @@ CLOUDINARY_STORAGE = {
 if 'RENDER' in os.environ:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-    os.makedirs(MEDIA_ROOT, exist_ok=True)
+    os.makedirs(MEDIA_ROOT,exist_ok=True)
 
 # Database
 #DATABASES = {
