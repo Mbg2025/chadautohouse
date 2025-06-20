@@ -91,7 +91,8 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Optionnel: pour les fichiers statiques aussi (si vous le souhaitez)
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticCloudinaryStorage'
-
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Database
 #DATABASES = {
 #    'default': {
@@ -129,14 +130,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 # Ajoutez ces configurations
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-if 'RENDER' in os.environ:
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-    os.makedirs(MEDIA_ROOT,exist_ok=True)
 
 # Configuration temporaire pour le débogage
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
