@@ -30,9 +30,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
+    'django.contrib.staticfiles',
+    
     
     
     # Applications personnalisées
@@ -57,7 +58,7 @@ MIDDLEWARE = [
 
 ]
 # Configuration WhiteNoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 ROOT_URLCONF = 'chadauto_project.urls'
 WHITENOISE_MANIFEST_STRICT = False
 TEMPLATES = [
@@ -90,11 +91,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Optionnel: pour les fichiers statiques aussi (si vous le souhaitez)
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticCloudinaryStorage'
-
-if 'RENDER' in os.environ:
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-    os.makedirs(MEDIA_ROOT,exist_ok=True)
 
 # Database
 #DATABASES = {
@@ -160,13 +156,16 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django.core.mail': {
+        'cloudinary': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+        'django': {
             'handlers': ['console'],
             'level': 'DEBUG',
         },
     },
 }
-
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Crispy Forms
