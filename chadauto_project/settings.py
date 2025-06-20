@@ -82,10 +82,15 @@ import os
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET')
 }
 
+# Définir Cloudinary comme backend de stockage par défaut
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Optionnel: pour les fichiers statiques aussi (si vous le souhaitez)
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticCloudinaryStorage'
+
 if 'RENDER' in os.environ:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
